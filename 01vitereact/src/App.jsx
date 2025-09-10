@@ -4,9 +4,10 @@ import Chai from "./chai"
 
 
 function App() {
+  const username = 'Krunal'
 
   return (
-    <Chai/>
+    <h1>chai with {username}</h1>
   )
 }
 
