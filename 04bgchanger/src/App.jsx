@@ -1,0 +1,14 @@
+import { useState } from "react"
+
+function App() {
+  const [color, setcolor] = useState("olive")
+
+  return (
+    <div className="w-full h-screen duration-200"
+    style={{background:color}}>
+    <div className="fixed flex flex-wrap justify-center "></div>
+    </div>
+  )
+}
+
+export default App
