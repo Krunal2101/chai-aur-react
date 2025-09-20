@@ -5,7 +5,7 @@ import Home from './Components/Home/Home'
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
 import Layout from './layout'
 import About from './Components/About/About'
-import Contact from './Contact/Contact'
+import Contact from './Components/Contact/Contact.jsx'
 import User from './Components/User/User.jsx'
 import Github, { githubInLoader } from './Components/Github/Github.jsx'
 
