@@ -1,13 +1,17 @@
-import UserContextProvider from "./Context/userContextProvider"
 
-
+import './App.css'
+import Login from './Components/Login'
+import Profile from './Components/Profile'
+import UserContextProvider from './Context/userContextProvider'
 
 function App() {
-
+  
 
   return (
     <UserContextProvider>
-     <h1>Mini Context API</h1>
+      <h1>React with Chai and share is important</h1>
+      <Login />
+      <Profile />
     </UserContextProvider>
   )
 }
