@@ -45,11 +45,11 @@ export class AuthService {
         return null
     }
 
-    async LougOut(){
+    async logOut(){
         try {
             await this.account.deleteSessions()
         } catch (error) {
-            console.log("appwrite service :: LougOut :: arror", error);   
+            console.log("appwrite service :: LogOut :: error", error);   
         }
     }
 
