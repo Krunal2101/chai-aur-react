@@ -15,10 +15,10 @@ function Signup() {
     const create = async (data)=>{
         setError("")
         try {
-          const userDate = await authService.createAccount(data) 
-          if (userDate) {
+          const userData = await authService.createAccount(data) 
+          if (userData) {
             const userData = await authService.getcurrentUser()
-            if (userData) dispatch(login(userData))
+            if (userData) dispatch(login(userData));
                 navigate('/') 
           }
         } catch (error) {
@@ -47,32 +47,34 @@ function Signup() {
 
                 <form onSubmit={handleSubmit(create)}>
                     <div className='space-y-5'>
-                        <input
+                        <Input
                             label="Name: "
                             placeholder="Enter your name"
                             {...register("name", {
-                                required: true
+                                required: true,
                             })}
                         />
-                        <input 
+                        <Input 
                             label= "Email: "
                             placeholder='Enter your email'
                             type='email'
                             {...register("email", {
-                                required: (value) => /^([\w\.\-_]+)?\w+@[\w-_]+(\.\w+){1,}$/igm.test(value) || "Please enter a valid email address"})}
+                                required: true, 
+                                matchpatern: (value) => /^([\w\.\-_]+)?\w+@[\w-_]+(\.\w+){1,}$/igm.test(value) || "Please enter a valid email address"
+                                })}
                         />
-                        <input
-                            label="password"
+                        <Input
+                            label="password: "
                             placeholder='Enter your password'
                             type='password'
                             {...register("password",{
                                 required: true,
                             })}
                         />
-                        <button 
+                        <Button 
                             type='submit'
                             className='w-full'
-                        >Create Account</button>
+                        >Create Account</Button>
                     </div>
                 </form>
             </div>

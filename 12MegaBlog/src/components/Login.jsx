@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { login as authLogin } from '../store/authSlice'
-import { Button, Logo, input} from './index'
+import { Button, Logo, Input} from './index'
 import { useDispatch } from 'react-redux'
 import authService from '../appwrite/auth'
 import { useForm } from 'react-hook-form'
@@ -18,7 +18,7 @@ function Login() {
            const session = await authService.login(data)
            if (session) {
                const userData = await authService.getcurrentUser()
-               if (userData) dispatch(authLogin(userData))
+               if (userData) dispatch(authLogin(userData));
                 navigate('/')
            }
         } catch (error) {
@@ -48,27 +48,30 @@ function Login() {
         {error && <p className=' text-red-600 mt-8 text-center'>{error}</p>}
         <form onSubmit={handleSubmit(login)} className='mt-8'>
             <div className='space-y-5'>
-                <input 
+                <Input 
                 label= "Email: "
                 placeholder='Enter your email'
                 type='email'
                 {...register("email", {
-                    required: (value) => /^([\w\.\-_]+)?\w+@[\w-_]+(\.\w+){1,}$/igm.test(value) ||
-                    "Please enter a valid email address"
+                    required: true,
+                    validate: {
+                        matchpetern:(value) => /^([\w\.\-_]+)?\w+@[\w-_]+(\.\w+){1,}$/igm.test(value) ||
+                    "Please enter a valid email address",
+                    } 
                 })}
                 />
-                <input
-                    label="Password"
+                <Input
+                    label="Password: "
                     placeholder='Enter your password'
                     type='password'
                     {...register("password",{
-                        required: true
+                        required: true,
                     })}
                 />
-                <button
+                <Button
                 type='submit'
                 className='w-full'
-                >sign in</button>
+                >sign in</Button>
             </div>
         </form>
      </div> 
