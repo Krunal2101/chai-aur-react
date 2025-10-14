@@ -83,7 +83,7 @@ export class Service{
                 queries,
             )
         } catch (error) {
-            console.log("Appwrite service :: getPosts :: error", error);
+            console.log("appwrite service :: getPosts :: error", error);
             return false
         }
     }
