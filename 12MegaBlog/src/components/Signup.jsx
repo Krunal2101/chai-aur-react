@@ -18,7 +18,7 @@ function Signup() {
           const userData = await authService.createAccount(data) 
           if (userData) {
             const userData = await authService.getcurrentUser()
-            if (userData) dispatch(login(userData));
+            if (userData) dispatch(login({userData}));
                 navigate('/') 
           }
         } catch (error) {
@@ -60,8 +60,8 @@ function Signup() {
                             type='email'
                             {...register("email", {
                                 required: true, 
-                                matchpatern: (value) => /^([\w\.\-_]+)?\w+@[\w-_]+(\.\w+){1,}$/igm.test(value) || "Please enter a valid email address"
-                                })}
+                                matchPattern: (value) => /^([\w\.\-_]+)?\w+@[\w-_]+(\.\w+){1,}$/igm.test(value) || "Please enter a valid email address"
+                              })}
                         />
                         <Input
                             label="password: "

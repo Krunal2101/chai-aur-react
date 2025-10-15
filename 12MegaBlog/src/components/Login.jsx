@@ -18,7 +18,7 @@ function Login() {
            const session = await authService.login(data)
            if (session) {
                const userData = await authService.getcurrentUser()
-               if (userData) dispatch(authLogin(userData));
+               if (userData) dispatch(authLogin({ userData }));
                 navigate('/')
            }
         } catch (error) {
@@ -55,7 +55,7 @@ function Login() {
                 {...register("email", {
                     required: true,
                     validate: {
-                        matchpetern:(value) => /^([\w\.\-_]+)?\w+@[\w-_]+(\.\w+){1,}$/igm.test(value) ||
+                        matchPattern:(value) => /^([\w\.\-_]+)?\w+@[\w-_]+(\.\w+){1,}$/igm.test(value) ||
                     "Please enter a valid email address",
                     } 
                 })}

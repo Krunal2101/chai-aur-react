@@ -39,7 +39,7 @@ export class AuthService {
         try {
             return await this.account.get();
         } catch (error) {
-            console.log("appwrite serice :: getcurrentUser :: error", error);  
+            console.log("Appwrite service :: getcurrentUser :: error", error);  
         }
 
         return null;
